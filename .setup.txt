@@ -1,0 +1,126 @@
+mkdir -p \
+  data/raw \
+  data/processed \
+  data/interim \
+  data/external \
+  notebooks \
+  src/data \
+  src/features \
+  src/models \
+  src/utils \
+  configs \
+  scripts \
+  tests \
+  docs \
+  models \
+  artifacts \
+  metrics \
+  reports/figures \
+  pipelines \
+  .github/workflows \
+  docker
+
+========================================
+python -m venv .venv && source .venv/bin/activat
+
+========================================
+
+
+cat > requirements.txt << 'EOF'
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+mlflow
+fastapi
+uvicorn
+python-dotenv
+joblib
+great-expectaions
+pytest
+EOF
+
+
+===================================
+
+pip install -r requirements.txt
+
+===================================
+
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+.env
+.env.*
+.setup.txt
+.srarter.sh
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Data & artifacts (keep .gitkeep)
+data/* 
+!data/.gitkeep
+!data/**/.gitkeep
+models/*
+!models/.gitkeep
+artifacts/*
+!artifacts/.gitkeep
+metrics/*
+!metrics/.gitkeep
+reports/figures/*
+!reports/figures/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# DVC/MLflow
+.dvc/
+.mlflow/
+mlruns/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+EOF
+
+===================================
+
+cat > pyproject.toml << 'EOF'
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlops-project"
+version = "0.1.0"
+description = "An example MLOps project"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.isort]
+profile = "black"
+EOF
+
+===================================
+===================================
+===================================
+===================================
+===================================
+===================================
+
+
