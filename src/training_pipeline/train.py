@@ -53,13 +53,16 @@ def train_model(
     target = "price"
     X_train, y_train = train_df.drop(columns=[target]), train_df[target]
     X_eval, y_eval = eval_df.drop(columns=[target]), eval_df[target]
-
+    # best_params = {'n_estimators': 696, 'max_depth': 8, 'learning_rate': 0.02311216595382265, 
+    #           'subsample': 0.6430040265294412, 'colsample_bytree': 0.5186869773666134, 
+    #           'min_child_weight': 6, 'gamma': 2.0045951870243925, 
+    #           'reg_alpha': 6.572785892441976e-05, 'reg_lambda': 0.0015992776442720403}
     params = {
-        "n_estimators": 500,
-        "learning_rate": 0.05,
-        "max_depth": 6,
-        "subsample": 0.8,
-        "colsample_bytree": 0.8,
+        "n_estimators": 696,
+        "learning_rate": 0.0231,
+        "max_depth": 8,
+        "subsample": 0.643,
+        "colsample_bytree": 0.519,
         "random_state": random_state,
         "n_jobs": -1,
         "tree_method": "hist",
