@@ -20,7 +20,6 @@ DEFAULT_TRAIN = Path("data/processed/feature_engineered_train.csv")
 DEFAULT_EVAL = Path("data/processed/feature_engineered_eval.csv")
 DEFAULT_OUT = Path("models/xgb_model.pkl")
 
-
 def _maybe_sample(df: pd.DataFrame, sample_frac: Optional[float], random_state: int) -> pd.DataFrame:
     if sample_frac is None:
         return df
